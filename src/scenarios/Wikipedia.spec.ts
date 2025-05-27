@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test';
 test('Wikipedia: Busca por "Café" e valida conteúdo', async ({ page }) => {
   await page.goto('https://www.wikipedia.org');
 
-  // Seleciona o idioma português
   await page.selectOption('select#searchLanguage', 'pt');
 
   const termo = 'Café';
@@ -19,7 +18,7 @@ test('Wikipedia: Busca por "Café" e valida conteúdo', async ({ page }) => {
   expect(texto?.toLowerCase()).toContain('café');
 });
 
-test('Wikipedia: Usando ZeroStep para buscar e validar "Brasil"', async ({ page }) => {
+test('Wikipedia: Busca por "Brasil" e valida conteúdo', async ({ page }) => {
   await test.step('Acessar Wikipedia em português', async () => {
     await page.goto('https://www.wikipedia.org');
     await page.selectOption('select#searchLanguage', 'pt');
